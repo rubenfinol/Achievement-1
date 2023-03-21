@@ -1,0 +1,241 @@
+
+/*
+Color used 
+text color (Dark Gray): #2b2b2b;
+Primary Color (white): #fff;
+secondary color (purple) #357b70 */
+
+:root {
+    --primary-color: #357b70;
+    --secondary-color: #e0b354;
+    --tertiary-color: #2b3c4c;
+    --font-family: 'Lato', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+}
+
+
+
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    }
+
+h1 {
+    font-size: 30px;
+    font-weight: var(--font-weight-bold);
+}
+
+a {
+    color: purple;
+}
+
+a:visited:not(.button) {
+    /*visited link */
+    color: #05676e;
+}
+
+a:hover, a:focus {
+    /* No underlining whe hovering over a link */
+    text-decoration: none;
+}
+
+a:active {
+    /* selected link */
+    color: #489c79;
+}
+
+button, .button {
+    /* overwrites browser defaults and reset the border */
+    border: none;
+    /* takes the font from the outer container */
+    font-family: inherit;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    /* adds spacing to the button */
+    padding: 10px;
+    border-radius: 3px;
+    /* gives the button a bottom border with a width of 2px, a type of solid, amd a color RGBA format */
+    border-bottom: 2px solid rgba (0, 0, 0, 0.3);
+    transition-duration: 0.2s;
+    transition-property: opacity;
+}
+
+button:hover, button:focus, .button:hover, .button:focus {
+    /* let mouse appear as a hand over the buttom */
+    cursor: pointer;
+    /* reduces the opacity of the buttom 80% */
+    opacity: 0.8;
+}
+
+.button__secondary {
+    background-color: var(--secondary-color);
+    color: #2b2b2b;
+  }
+
+  /* remove underlining on the active element*/
+ .navigation-list__item--active {
+    text-decoration: none;
+ }
+
+ .profile__portrait {
+    float: left;
+    width: 250px;
+    margin-right: 40px;
+    border-radius: 50%;
+ }
+
+ .page-footer {
+    clear: both;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+ }
+
+ 
+
+ .profile {
+    max-width: 700px;
+    margin: 0 auto;
+ }
+
+ /*universal selector*/
+ * {
+    box-sizing: border-box;
+ }
+ 
+
+ .divider {
+    border-bottom: 1px solid var(--tertiary-color);
+    margin: 0 auto;
+ }
+
+.about-me{
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+ /*cover the full width of the page with 20px of padding*/
+ .page-header {
+    display: flex;
+    width: 100%;
+    padding: 20px; 
+ }
+
+ /* both child items similar base behavior, base widt of 200px, ability to shrink along the same radio but they won't be able to grow.(would add the growing behavior only to the navigation*/
+.page-header__item {
+    flex: 0 1 200px;
+}
+
+/*navigation should b able to take up rest of the space, want navigation to be rightialigned using pseudo-selector :last-child.*/
+.page-header__item:last-child {
+    flex-grow: 1;
+    text-align: right;
+}
+
+/* getting rid of dots*/
+.navigation-list {
+    list-style-type: none;
+}
+
+/*allign item in a row and give them some space in-between them*/
+.navigation-list li {
+    display: inline-block;
+    margin-left: 15px;
+}
+
+.about-list {
+    list-style-type: none;
+}
+
+/*grid contaier, colums and rows. gap insted of margin*/
+.grid {
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr;
+   grid-gap: 20px;
+
+}
+
+.grid_item{
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.sun{
+    animation: 4s color-change infinite alternate linear;
+}
+
+.cloud-front{
+    animation: 30s cloud-move infinite alternate linear;
+}
+
+.cloud-back {
+    animation: 34s cloud-move-reverse infinite alternate linear;
+}
+
+@media all and (max-width: 500px){
+    .grid {
+        grid-template-columns: 1fr;
+        }
+ }
+
+@media all and (min-width: 500px) and (max-width: 750px){
+    .grid {
+        grid-template-columns: 1fr 1fr;
+       }
+} 
+
+@media all and (max-width: 750px) {
+    .grid{
+        grid-gap: 10px;
+    }
+    .grid__item:last-child {
+        grid-column: auto / auto;
+        grid-row: auto / auto;
+    }
+    h1 {
+        font-size: 22px;
+    }
+}
+
+
+    @keyframes color-change {
+        0% {
+            fill: #edc655;
+        }
+        50%{
+            fill: #fcffad;
+        }
+
+        100% {
+            fill: #f76414;
+        }
+    }
+
+    @keyframes cloud-move {
+        from{
+            transform: translate(0, 50px);
+        }
+        to {
+            transform: translate(200px, 50px);
+        }
+    }
+
+    @keyframes cloud-move-reverse {
+        from {
+            transform: translate(446px, 48px);
+        }
+        to {
+            transform: translate(100px, 48px);
+        }
+    }
+
+
+ 
